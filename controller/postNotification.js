@@ -22,17 +22,24 @@ const postNotification = async (req, res) => {
         body: JSON.stringify(notification),
       });
   
-      const data = await response.json();
-      console.log('Notificación enviada:', data);
+      if (!response.ok) {
+        // Si la respuesta no es exitosa, lanza un error con el código de estado
+        throw new Error(`Error en la solicitud: ${response.status}`);
+      }
+  
+      const responseData = await response.json(); // Almacena el resultado de response.json()
+  
+      console.log('Notificación enviada:', responseData);
   
       // Guarda los detalles de la notificación en la base de datos
       await notificationSchema.create({ title, body });
   
       res.status(200).json({ message: 'Notificación enviada con éxito' });
     } catch (error) {
-      console.error('Error al enviar la notificación:', error);
-      res.status(500).json({ error: 'Error al enviar la notificación' });
+      console.error('Error al enviar la notificación o al guardar en la base de datos:', error);
+      res.status(500).json({ error: 'Error al enviar la notificación o al guardar en la base de datos' });
     }
-}
+  };
+  
 
 module.exports = postNotification; 

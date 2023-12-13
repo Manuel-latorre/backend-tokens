@@ -1,9 +1,13 @@
 const notificationSchema = require('../models/notifications');
+const tokenSchema = require('../models/token')
 
 const postNotification = async (req, res) => {
     const { title, body } = req.body;
-  
-    // Envia notificación a todos los tokens registrados
+
+    const tokensFromDatabase = await tokenSchema.find({}, { _id: 0, token: 1 });
+    const registeredTokens = tokensFromDatabase.map(item => item.token);
+
+    
     const notification = {
       registration_ids: registeredTokens,
       notification: {

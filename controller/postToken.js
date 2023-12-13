@@ -4,7 +4,7 @@ const postToken = async (req, res) => {
   const { fcmtoken } = req.body;
 
   try {
-    // Crea un nuevo documento en la base de datos
+    // Lógica para guardar el token en la base de datos
     const newToken = await tokenSchema.create({ token: fcmtoken });
     console.log('Token registrado en la base de datos:', newToken);
     res.status(200).json({ message: 'Token registrado con éxito' });

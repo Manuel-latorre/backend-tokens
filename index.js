@@ -19,11 +19,12 @@ app.use(cors())
 app.use(express.json())
 
 
-app.get('/ver-tokens', controllers.getToken);
-app.get('/ver-notificaciones', controllers.getNotification)
 app.post('/registrar-token', controllers.postToken)
 app.post('/enviar-notificacion', controllers.postNotification)
+app.post('/prueba', controllers.postPrueba)
 
+app.get('/ver-tokens', controllers.getToken);
+app.get('/ver-notificaciones', controllers.getNotification)
 
   app.get("/", function(req, res){
     res.send("backend tokenssss")

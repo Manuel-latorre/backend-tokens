@@ -9,7 +9,7 @@ const postToken = async (req, res) => {
 
     if (!existingToken) {
       // Si el token no existe, guárdalo en la base de datos
-      await Token.create({ token: fcmtoken });
+      await tokenSchema.create({ token: fcmtoken });
       res.status(200).json({ message: 'Token registrado con éxito' });
     } else {
       // Si el token ya existe, responde indicando que ya está registrado
@@ -20,5 +20,6 @@ const postToken = async (req, res) => {
     res.status(500).json({ error: 'Error al registrar el token en la base de datos' });
   }
 }
+
 
 module.exports = postToken; 

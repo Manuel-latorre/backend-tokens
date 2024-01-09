@@ -1,7 +1,7 @@
 const tokenSchema = require('../models/token');
 
 const postToken = async (req, res) => {
-  const { fcmtoken } = req.body;
+  const { fcmtoken, id } = req.body;
 
   try {
     // Verifica si el token ya está registrado para evitar duplicados

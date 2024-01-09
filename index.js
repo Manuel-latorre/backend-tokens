@@ -22,8 +22,10 @@ app.use(express.json())
 app.post('/registrar-token', controllers.postToken)
 app.post('/enviar-notificacion', controllers.postNotification)
 app.post('/prueba', controllers.postPrueba)
+app.post('/register', controllers.createUser)
 
 app.get('/ver-tokens', controllers.getToken);
+app.get('/users', controllers.getUser)
 app.get('/ver-notificaciones', controllers.getNotification)
 
   app.get("/", function(req, res){

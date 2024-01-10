@@ -5,6 +5,7 @@ const getNotification =  require('./getNotification')
 const postPrueba = require('./postPrueba')
 const createUser = require('./createUser')
 const getUser = require('./getUser')
+const getSession = require('./getSession')
 module.exports = {
     postToken,
     getToken,
@@ -12,5 +13,6 @@ module.exports = {
     getNotification,
     postPrueba,
     createUser,
-    getUser
+    getUser,
+    getSession
 }

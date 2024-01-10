@@ -23,6 +23,7 @@ app.post('/registrar-token', controllers.postToken)
 app.post('/enviar-notificacion', controllers.postNotification)
 app.post('/prueba', controllers.postPrueba)
 app.post('/register', controllers.createUser)
+app.post('/login', controllers.getSession)
 
 app.get('/ver-tokens', controllers.getToken);
 app.get('/users', controllers.getUser)
